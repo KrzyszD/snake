@@ -1,10 +1,11 @@
 
 function drawSnake() {
+    // Draw the head and erases the tail if it move
 
     // draw first square
-    var r = colors.values[0][0]
-    var g = colors.values[1][0]
-    var b = colors.values[2][0]
+    var r = colors.values[0][0];
+    var g = colors.values[1][0];
+    var b = colors.values[2][0];
 
     var color = "rgb(" + r + ", " + g + ", " + b + ")";
     
@@ -27,6 +28,35 @@ function drawSnake() {
     if (!compareArrays(lastPos, pos[pos.length - 1])){
         // Remove last square if the end moves
         square(lastPos[0] * tileSize, lastPos[1] * tileSize, tileSize, "black", 0);
+    }
+
+}
+
+function drawSnakeAll() {
+    // Redraws the entire snake
+
+    for (var segment = 0; segment < pos.length; segment++){
+        var r = colors.values[0][segment];
+        var g = colors.values[1][segment];
+        var b = colors.values[2][segment];
+
+        var color = "rgb(" + r + ", " + g + ", " + b + ")";
+    
+        square(pos[segment][0] * tileSize, pos[segment][1] * tileSize, squareSize, color, 1);
+    
+        if (drawMiddleSegment && segment < pos.length - 1) {
+            // Draw connecting part of snake segments
+            r = (r + colors.values[0][segment + 1]) / 2;
+            g = (g + colors.values[1][segment + 1]) / 2;
+            b = (b + colors.values[2][segment + 1]) / 2;
+    
+            color = "rgb(" + r + ", " + g + ", " + b + ")";
+    
+            var midX = (pos[segment][0] + pos[segment + 1][0]) / 2;
+            var midY = (pos[segment][1] + pos[segment + 1][1]) / 2;
+    
+            square(midX * tileSize, midY * tileSize, squareSize, color, 1);
+        }
     }
 
 }

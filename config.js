@@ -1,19 +1,19 @@
 
 const numFood = 5;
 
-const growRate = 50;
+const growRate = 1;
 const startSize = 5;
 
-const fast =   2000/60;
-const medium = 5000/60;
-const slow =   10000/60;
+const fast =   1000/30; //  1000 / FPS
+const medium = 1000/12;
+const slow =   1000/5;
 
-const squareSize = 20;
-const tileSize = 26;
+var squareSize = 20;
+var tileSize = 26;
 const drawMiddleSegment = true;
 
-const rowSize = 30;
-const colSize = 30;
+var rowSize = 30;
+var colSize = 30;
 
-const width = rowSize * tileSize;
-const height = colSize * tileSize;
+var width = rowSize * tileSize;
+var height = colSize * tileSize;
