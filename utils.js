@@ -100,7 +100,9 @@ function checkEatFood() {
 
 function initFood(){
     for (var i = 0; i < numFood; i++){
-        foods.push(getnewFoodPos());
+        foodPosition = getnewFoodPos();
+        if (foodPosition != null)
+            foods.push(foodPosition);
     }
 }
 
@@ -136,10 +138,9 @@ function getnewFoodPos() {
         if (!goodPosition) {
             continue
         }
-
         return position;
     }
-
+    return null;
 }
 
 function collision() {
@@ -158,5 +159,7 @@ function collision() {
 }
 
 function compareArrays(a, b) {
+    if (a === null || b === null)
+        return a === b;
     return a[0] === b[0] && a[1] === b[1];
 };

@@ -45,7 +45,6 @@ function play() {
 
     foods = [];
     initFood();
-    console.log(foods)
     setTimeout(oneEngineStep, 500);
     document.getElementById("options").style.display = "none";
 }
@@ -75,7 +74,7 @@ function setSizes(evt) {
 
     tileSize = Math.floor(Math.min(tileWidth, tileHeight));
 
-    squareSize = Math.floor(0.9 * tileSize);
+    squareSize = Math.floor(0.8 * tileSize);
     if (squareSize % 2 === 1) squareSize--;
     if (tileSize % 2 === 1) tileSize--;
     
@@ -86,7 +85,4 @@ function setSizes(evt) {
 
     drawSnakeAll();
     drawFood();
-
-    console.log(squareSize);
-    console.log(tileSize);
 }

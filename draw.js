@@ -13,9 +13,11 @@ function square(x, y, size, color, scale) {
 }
 
 function drawFood() {
-    for (var i = 0; i < numFood; i++){
-        var foodX = foods[i][0];
-        var foodY = foods[i][1];
+    for (var i = 0; i < foods.length; i++){
+        if (foods[i] !== null) {
+            var foodX = foods[i][0];
+            var foodY = foods[i][1];
+        }
         square(foodX *  tileSize, foodY *  tileSize,  squareSize, "white", 1);
     }
 }
