@@ -18,7 +18,9 @@ var lastPos = [];
 var colors = {
     direction: [1, 1, 1],
     momentum: [10, 10, 10],
-    values: [[], [], []]
+    momentumCap: 10,
+    momentumReduction: 0.8,
+    hsl: [[], [], []]
 }
 
 function keyPress(event) {
@@ -75,14 +77,15 @@ function checkEatFood() {
     for (var i = 0; i < numFood; i++){
         if (compareArrays(pos[0], foods[i])) {
 
-            var r = colors.values[colors.values.length - 1];
-            var g = colors.values[colors.values.length - 1];
-            var b = colors.values[colors.values.length - 1];
+            var h = colors.hsl[colors.hsl.length - 1];
+            var s = colors.hsl[colors.hsl.length - 1];
+            var l = colors.hsl[colors.hsl.length - 1];
     
             for(var x = 0; x < growRate; x++){
-                colors.values[0].push(r);
-                colors.values[1].push(g);
-                colors.values[2].push(b);
+                
+                colors.hsl[0].push(h);
+                colors.hsl[1].push(s);
+                colors.hsl[2].push(l);
                 
                 pos.push(pos[pos.length - 1]);
     

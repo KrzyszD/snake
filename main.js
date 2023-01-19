@@ -29,16 +29,17 @@ function play() {
     setSizes(null)
 
     pos = [];
-    colors.values = [[50], [250], [50]];
+    colors.hsl = [[128], [100], [30]];
 
     direction = "r";
     alive = true;
 
     for (var q = 0; q < startSize; q++){
         pos.push( [1, 1] );
-        colors.values[0].push(50);
-        colors.values[1].push(250);
-        colors.values[2].push(50);
+        
+        colors.hsl[0].push(128);
+        colors.hsl[1].push(100);
+        colors.hsl[2].push(30);
     }
     score = pos.length;
     square(0, 0,  width +  height, "black", 0);
